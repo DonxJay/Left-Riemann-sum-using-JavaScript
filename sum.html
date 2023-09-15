@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Left Riemann Sum</title>
+</head>
+<body>
+    <h2>The Result of the Numerical Integration is: </h2>
+    <p id="result"></p>
+
+    <script>
+        function numInt(f, a, b, n) {
+            let dx = (b - a) / n;
+            let sum = 0;
+
+            for (let i = 0; i < n; i++) {
+                let x = a + i * dx;
+                sum += f(x);
+            }
+
+
+            return sum * dx;
+        }
+
+        function rationalFunc(x) {
+            return 1 / (1 + x * x);
+        }
+
+        document.getElementById('result').innerText = numInt(rationalFunc, 2, 5, 10);
+    </script>
+</body>
+</html>
